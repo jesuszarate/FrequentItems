@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abcc97ae-a629-4a95-a056-3bcf939debdf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CountMinSketch/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CountMinSketch/count-min-sketch.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MisraGries/misra-gries.py" afterPath="$PROJECT_DIR$/MisraGries/misra-gries.py" />
     </list>
@@ -838,12 +836,20 @@
       <updated>1490113524579</updated>
       <workItem from="1490113528216" duration="152000" />
       <workItem from="1490113750222" duration="8285000" />
-      <workItem from="1490146026734" duration="12801000" />
+      <workItem from="1490146026734" duration="12844000" />
     </task>
+    <task id="LOCAL-00001" summary="Finished implementation of count min sketch.">
+      <created>1490161863272</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1490161863272</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21238000" />
+    <option name="totallyTimeSpent" value="21281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -884,6 +890,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finished implementation of count min sketch." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished implementation of count min sketch." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
