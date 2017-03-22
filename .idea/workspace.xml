@@ -15,7 +15,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/FrequentItems$misra_gries.coverage" NAME="misra-gries Coverage Results" MODIFIED="1490149706107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MisraGries" />
-    <SUITE FILE_PATH="coverage/FrequentItems$count_min_sketch.coverage" NAME="count-min-sketch Coverage Results" MODIFIED="1490163811040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CountMinSketch" />
+    <SUITE FILE_PATH="coverage/FrequentItems$count_min_sketch.coverage" NAME="count-min-sketch Coverage Results" MODIFIED="1490163916609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CountMinSketch" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -36,7 +36,7 @@
       <file leaf-file-name="misra-gries.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MisraGries/misra-gries.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="-75">
               <caret line="10" column="26" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="10" selection-end-column="26" />
               <folding />
             </state>
@@ -46,8 +46,8 @@
       <file leaf-file-name="count-min-sketch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CountMinSketch/count-min-sketch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="70" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+            <state relative-caret-position="60">
+              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -86,9 +86,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/intermediate_report.tex" />
-        <option value="$PROJECT_DIR$/A4-FrequentItems/A4-FrequentItems.tex" />
         <option value="$PROJECT_DIR$/MisraGries/misra-gries.py" />
+        <option value="$PROJECT_DIR$/A4-FrequentItems/Assignment2.tex" />
         <option value="$PROJECT_DIR$/CountMinSketch/count-min-sketch.py" />
+        <option value="$PROJECT_DIR$/A4-FrequentItems/A4-FrequentItems.tex" />
       </list>
     </option>
   </component>
@@ -831,7 +832,7 @@
       <updated>1490113524579</updated>
       <workItem from="1490113528216" duration="152000" />
       <workItem from="1490113750222" duration="8285000" />
-      <workItem from="1490146026734" duration="14792000" />
+      <workItem from="1490146026734" duration="18622000" />
     </task>
     <task id="LOCAL-00001" summary="Finished implementation of count min sketch.">
       <created>1490161863272</created>
@@ -847,11 +848,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490161903094</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cleaned up the code and structured it">
+      <created>1490163857024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1490163857024</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23229000" />
+    <option name="totallyTimeSpent" value="27059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -896,14 +904,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished implementation of count min sketch." />
     <MESSAGE value="Updated misra-gries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated misra-gries" />
+    <MESSAGE value="Cleaned up the code and structured it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the code and structured it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CountMinSketch/count-min-sketch.py</url>
-          <line>72</line>
+          <line>76</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
@@ -996,19 +1005,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MisraGries/misra-gries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="10" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/A4-FrequentItems/Assignment2.tex">
-      <provider editor-type-id="LaTeXFileEditor">
+      <provider selected="true" editor-type-id="LaTeXFileEditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor">
         <state relative-caret-position="-825">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -1017,8 +1018,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CountMinSketch/count-min-sketch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="70" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state relative-caret-position="60">
+          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MisraGries/misra-gries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="10" column="26" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="10" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -17,6 +17,10 @@ class countMinSketch(object):
         self.m = len(self.stream)
 
     def initCounters(self):
+        """
+        Init  the counters to all 0's
+        :return:
+        """
         for i in range(self.t):
             self.Counters.append([])
             for j in range(self.k):
@@ -62,7 +66,7 @@ class countMinSketch(object):
 path1 = '/Users/jesuszarate/SchoolSemesters/Spring2017/CS6140-DataMining/FrequentItems/S1.txt'
 path2 = '/Users/jesuszarate/SchoolSemesters/Spring2017/CS6140-DataMining/FrequentItems/S2.txt'
 
-cms1 = countMinSketch(path1)
+cms1 = countMinSketch(path2)
 cms1.countMinSketch()
 
 print 'a - ' + str(cms1.query('a'))
