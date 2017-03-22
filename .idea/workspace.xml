@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abcc97ae-a629-4a95-a056-3bcf939debdf" name="Default" comment="">
+    <list default="true" id="abcc97ae-a629-4a95-a056-3bcf939debdf" name="Default" comment="Added the">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/A4-FrequentItems/A4-FrequentItems.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/A4-FrequentItems/Assignment2.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CountMinSketch/count-min-sketch.py" afterPath="$PROJECT_DIR$/CountMinSketch/count-min-sketch.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -832,7 +833,7 @@
       <updated>1490113524579</updated>
       <workItem from="1490113528216" duration="152000" />
       <workItem from="1490113750222" duration="8285000" />
-      <workItem from="1490146026734" duration="18622000" />
+      <workItem from="1490146026734" duration="18675000" />
     </task>
     <task id="LOCAL-00001" summary="Finished implementation of count min sketch.">
       <created>1490161863272</created>
@@ -855,15 +856,22 @@
       <option name="project" value="LOCAL" />
       <updated>1490163857024</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finished count min">
+      <created>1490168229936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1490168229936</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27059000" />
+    <option name="totallyTimeSpent" value="27112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -879,7 +887,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -905,7 +913,8 @@
     <MESSAGE value="Finished implementation of count min sketch." />
     <MESSAGE value="Updated misra-gries" />
     <MESSAGE value="Cleaned up the code and structured it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the code and structured it" />
+    <MESSAGE value="Finished count min" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished count min" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

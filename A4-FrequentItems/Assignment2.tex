@@ -1,0 +1,439 @@
+\documentclass[11pt]{article}
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{url}
+\usepackage{enumitem}
+
+%%%%%%%  For drawing trees  %%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes, backgrounds}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-0.600in}
+\setlength{\headheight}{0.2in}
+\setlength{\headsep}{0.250in}
+\setlength{\footskip}{0.5in}
+\flushbottom
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\columnsep}{2pc}
+\setlength{\parindent}{1em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\eps}{\varepsilon}
+
+\renewcommand{\c}[1]{\ensuremath{\EuScript{#1}}}
+\renewcommand{\b}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\s}[1]{\textsf{#1}}
+
+%% Tabs
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+
+\newcommand{\E}{\textbf{\textsf{E}}}
+\renewcommand{\Pr}{\textbf{\textsf{Pr}}}
+
+\title{Homework Assignment 2 - Chapter 2
+\footnote{\s{CS4480-Computer Networks; \;\; Spring 2017 \hfill}}}
+\author{Jesus Zarate}
+\begin{document}
+\maketitle
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{P18}
+\begin{enumerate}[label=(\alph*)]
+\item What is a whois database?
+
+It is a database that is used to store information about registered internet users, that information includes the domain name as well as the IP address.
+
+%B
+\item Use various whois databases on the internet to obtain the names of two DNS servers. Indicate which whois databases you used.
+
+I used GoDaddy, and ARIN. Google and GoDaddy
+
+%C
+\item Use nslookup on your local host to send DNS queries to three DNS servers: your local DNS server and the two DNS servers you found in part (b). Try querying for Type A, NS, and MX reports. Summarize your findings.
+
+A-Type return a 32-bit IP address
+
+NS-Type The name server record is used to delegate to a set of name servers.
+
+MX-Type Mail Exchange record maps a domain name to a list of message agents for that domain
+
+
+Google
+
+\begin{center}
+\includegraphics[width=.6\linewidth]{img/type-A.png}
+
+
+\includegraphics[width=.6\linewidth]{img/type-NS.png}
+
+
+\includegraphics[width=.6\linewidth]{img/type-MX.png}
+\end{center}
+
+GoDaddy
+
+\begin{center}
+\includegraphics[width=.6\linewidth]{img/gd_type_A.png}
+
+
+\includegraphics[width=.6\linewidth]{img/gd_type_NS.png}
+
+
+\includegraphics[width=.6\linewidth]{img/gd_type_MX.png}
+\end{center}
+
+
+%D
+\item Use nslookup to find a Web server that has multiple IP addresses. Does the Web server of your institution (school or company have multiple IP addresses?
+
+zaful.com
+
+utah.edu doesn't have multiple IP addresses
+
+\begin{center}
+\includegraphics[width=.6\linewidth]{img/multiple_ip_c.png}
+\includegraphics[width=.6\linewidth]{img/utahdotedu.png}
+
+\end{center}
+
+%E
+\item Use the ARIN whois database to determine the IP address range used by your university.
+
+NetRange:       155.101.0.0 - 155.101.255.255
+
+%F
+\item Describe how an attacker can use whois databases and the nslookup tool to perform reconnaissance on an institution before launcing an attack.
+
+By using whois and nslookup an attacker can get access to the insititution's IP addresses and then the attacker can use those IP addresses to target them, and perform an attack such as a denial of service attack.
+
+%G
+\item Discuss why whois databases should be publicly available.
+
+Since the whois databases are the primary reference for determining the domain name or IP address.
+
+\end{enumerate}
+
+\section*{P19}
+\begin{enumerate}[label=(\alph*)]
+%A
+\item Starting with a root DNS server (from one of the root server [a-m].root-servers.net), initiate a sequence of queries for the IP address for your departent's Web server by using dig. Show the list of the names of DNS servers in the delegation chain in answering your query.
+
+dig +norecurse @a.root-servers.net any utah.edu\\
+
+;; AUTHORITY SECTION:\\
+  edu.172800INNSa.edu-servers.net.\\
+  edu.172800INNSc.edu-servers.net.\\
+  edu.172800INNSd.edu-servers.net.\\
+  edu.172800INNSf.edu-servers.net.\\
+  edu.172800INNSg.edu-servers.net.\\
+  edu.172800INNSl.edu-servers.net.\\
+
+
+dig +norecurse @a.edu-servers.net any utah.edu
+
+;; AUTHORITY SECTION:\\
+  utah.edu.172800INNSfiber.utah.edu.\\
+  utah.edu.172800INNSns.utah.edu.\\
+  utah.edu.172800INNSns1.utah.edu.\\
+  utah.edu.172800INNSfiber1.utah.edu.\\\\
+
+dig +norecurse @fiber.utah.edu any utah.edu\\
+
+;; ANSWER SECTION:\\
+  utah.edu.1800INSOAns.utah.edu. hostmaster.utah.edu. 34851 10800 3600 2419200 180\\
+  utah.edu.1800INMX5 ipo.cc.utah.edu.\\
+  utah.edu.1800INNSns1.utah.edu.\\
+  utah.edu.1800INNSfiber.utah.edu.\\
+  utah.edu.1800INNSns.utah.edu.\\
+  utah.edu.1800INNSfiber1.utah.edu.\\
+  utah.edu.1800INTXT''rOmZR5ND8sH5tCqnA5Yzz5V505m85fOpxkDSvikfoSPYuhS82DoTEFi5/+xX1sWAXI2V05VUnqCsm5P+a6GTIg==''\\
+  utah.edu.1800INTXT''+vQB7O3QxZLRo0UAA+wZ5i9sV+K9Ag84J+Bwv6rXOMYVYP29Xjt0MuYte34WyHXW0+t9hRxIJzJVVz8hdvo9Gg==''\\
+  utah.edu.1800INTXT''MS=ms59418590''\\
+  utah.edu.1800INTXT''MS=8F05E193886A3807B1E7565210D647F6B0FD1ADD''\\
+  utah.edu.1800INTXT''MS=ms98766755''\\
+  utah.edu.300INA155.101.6.35\\\\
+
+
+
+%B
+\item Repeat part (a) for several popular Web sites, such as google.com, yahoo.com, or amazon.com
+
+dig +norecurse @a.root-servers.net any google.com
+
+;; AUTHORITY SECTION:\\
+com.172800INNSa.gtld-servers.net.\\
+com.172800INNSb.gtld-servers.net.\\
+com.172800INNSc.gtld-servers.net.\\
+com.172800INNSd.gtld-servers.net.\\
+com.172800INNSe.gtld-servers.net.\\
+com.172800INNSf.gtld-servers.net.\\
+com.172800INNSg.gtld-servers.net.\\
+com.172800INNSh.gtld-servers.net.\\
+com.172800INNSi.gtld-servers.net.\\
+com.172800INNSj.gtld-servers.net.\\
+com.172800INNSk.gtld-servers.net.\\
+com.172800INNSl.gtld-servers.net.\\
+com.172800INNSm.gtld-servers.net.\\
+
+dig +norecurse @a.gtld-servers.net any google.com
+
+;; AUTHORITY SECTION:
+google.com.172800INNSns2.google.com.\\
+google.com.172800INNSns1.google.com.\\
+google.com.172800INNSns3.google.com.\\
+google.com.172800INNSns4.google.com.\\
+
+
+dig +norecurse @ns2.google.com any google.com\\
+
+;; ANSWER SECTION:\\
+google.com.300INA216.58.217.46\\
+google.com.300INAAAA2607:f8b0:400f:803::200e\\
+google.com.3600INTXT\\
+google.com.345600INNSns2.google.com.\\
+google.com.600INMX30 alt2.aspmx.l.google.com.\\
+google.com.600INMX40 alt3.aspmx.l.google.com.\\
+google.com.600INMX20 alt1.aspmx.l.google.com.\\
+google.com.345600INNSns4.google.com.\\
+google.com.86400INTYPE257 19 0005697373756573796D616E7465632E636F6D\\
+google.com.600INMX10 aspmx.l.google.com.\\
+google.com.600INMX50 alt4.aspmx.l.google.com.\\
+google.com.345600INNSns1.google.com.\\
+google.com.345600INNSns3.google.com.\\
+google.com.60INSOAns2.google.com. dns-admin.google.com. 146863740 900 900 1800 60\\
+
+
+Now Amazon
+
+dig +norecurse @a.root-servers.net amazon.com
+
+;; AUTHORITY SECTION:\\
+com.172800INNSa.gtld-servers.net.\\
+com.172800INNSb.gtld-servers.net.\\
+com.172800INNSc.gtld-servers.net.\\
+com.172800INNSd.gtld-servers.net.\\
+com.172800INNSe.gtld-servers.net.\\
+com.172800INNSf.gtld-servers.net.\\
+com.172800INNSg.gtld-servers.net.\\
+com.172800INNSh.gtld-servers.net.\\
+com.172800INNSi.gtld-servers.net.\\
+com.172800INNSj.gtld-servers.net.\\
+com.172800INNSk.gtld-servers.net.\\
+com.172800INNSl.gtld-servers.net.\\
+com.172800INNSm.gtld-servers.net.\\
+
+
+dig +norecurse @a.gtld-servers.net amazon.com
+
+;; AUTHORITY SECTION:\\
+amazon.com.172800INNSpdns1.ultradns.net.\\
+amazon.com.172800INNSpdns6.ultradns.co.uk.\\
+amazon.com.172800INNSns1.p31.dynect.net.\\
+amazon.com.172800INNSns3.p31.dynect.net.\\
+amazon.com.172800INNSns2.p31.dynect.net.\\
+amazon.com.172800INNSns4.p31.dynect.net.\\
+
+
+dig +norecurse @pdns1.ultradns.net amazon.com
+
+;; ANSWER SECTION:\\
+amazon.com.60INA54.239.17.7\\
+amazon.com.60INA54.239.17.6\\
+amazon.com.60INA54.239.25.208\\
+amazon.com.60INA54.239.25.200\\
+amazon.com.60INA54.239.25.192\\
+amazon.com.60INA54.239.26.128\\
+
+
+\end{enumerate}
+
+\section*{P26}
+
+Suppose Bob joins a BitTorrent torrent, but he does not want ot upload any data to any other peers.
+
+\begin{enumerate}[label=(\alph*)]
+\item Bob claims that he can receive a complete copy of the file that is shared by the swarm. Is Bob's claim possible? Why or why not?
+
+Bob's claim is possible because a like the book mentions if a user Alice only uses it's top neighbors with the highest rates every 30 seconds. Bob can actually download it before he is picked to be one of Alice's sharers.
+
+\item Bob further claims that he can further make his ``free-riding'' more efficent by using a collection of multiple computers (with distinct IP addressses) in the computer lab in his department. How can he do that?
+
+
+Bob can achieve this by using optimistic unchocking and use those computers to gather sub chunks.
+\end{enumerate}
+
+
+%1
+\section{}
+
+Find a way to determine the IP address of the local DNS server your laptop (or desktop) is using. What is the address? Describe how you found it. Provide evidence. (E.g., a screenshot.)
+
+\includegraphics[width=.6\linewidth]{img/local_dns_server.png}
+
+%2
+\section{} 
+Run the following ``dig'' commands and answer the associated questions. (You will likely have to install it if you haven't used it before.)
+
+dig www.utah.edu
+
+Show the output.
+
+\includegraphics[width=.6\linewidth]{img/dig_utah.png}
+
+\begin{itemize}
+\item Explain each entry in the answer section.
+
+www.utah.edu. 46 IN A 155.97.137.55
+
+Name
+
+www.utah.edu - The host name
+
+
+TTL
+
+46 - Time to Live (TTL), which determines when a resource should be removed from a cache.
+
+
+Class
+
+IN - The class (internet)
+
+
+Type
+
+A - The type. Provides the standard hostname-to-IP address mapping.
+
+Value
+
+155.97.137.55 - Since it's type A then it's the IP address
+
+
+\item What is the IP address of the DNS server that provided the answer?
+
+75.75.75.75
+
+\end{itemize}
+
+
+%%%%%3%%%%%%
+\section{} dig MX utah.edu
+
+Show the output.
+
+www.utah.edu. 1800 IN MX 7 ipo.cc.utah.edu.
+
+\begin{itemize}
+\item Explain each entry in the answer section [1]
+
+Name
+
+www.utah.edu - The host name\\
+
+
+TTL
+
+1800 - Time to Live (TTL), which determines when a resource should be removed from a cache.\\
+
+
+Class
+
+IN - The class (internet)\\
+
+
+Type
+
+MX - The type. Allows the hostnames of mail servers to have simple aliases.\\
+
+
+RD-Length
+
+7 - Unsigned 16-bit value that defines the length in bytes (octets) of the RDATA record.\\
+
+
+Value
+
+ipo.cc.utah.edu - Canonical name of a mail server that has an alias host name
+
+\end{itemize}
+
+\section{} dig www.mit.edu
+
+Show the output.
+
+www.mit.edu. 1800 IN CNAME www.mit.edu.edgekey.net.
+
+www.mit.edu.edgekey.net. 45 IN CNAME e9566.dscb.akamaiedge.net.
+
+e9566.dscb.akamaiedge.net. 20 IN A 23.7.136.184
+
+
+\begin{itemize}
+\item Explain each entry in the answer section.
+
+The first two entries are of type CNAME, and the use for CNAME is to get a canonical name for the alias host name.
+
+\item Explain why the MIT response might have more entries than the Utah response.
+
+This might be because MIT is probably running multiple services from a single IP address, and that's why it's
+there is multiple entries than Utah's.
+
+\end{itemize}
+
+\section{} Find a publicly accessible DNS server in Europe. Show the address and provide evidence.
+
+93.170.96.235
+
+\includegraphics[width=.6\linewidth]{img/uk_dns.png}
+
+\section{} 
+
+Perform a dig query for www.utah.edu *against this European DNS server*.
+
+Show the output.
+
+\includegraphics[width=.6\linewidth]{img/uk_utah.png}
+
+Perform a dig query for www.mit.edu *against this European DNS server*.
+
+Show the output.
+
+\includegraphics[width=.6\linewidth]{img/uk_mit.png}
+
+\begin{itemize}
+\item Compare the results for the two ``digs'' for www.utah.edu with the two ``digs'' for www.mit.edu (Links to an external site.). (Two ``digs'' meaning the digs against the Utah DNS server and the Europe DNS server.)
+
+\item Explain the difference.
+
+Looking at the results. The only difference I can see is in the query time. The query time for the server in the UK is a lot more than for the local server, which makes sence because of the distance.
+
+\includegraphics[width=.6\linewidth]{img/cmp_mit.png}
+
+
+\includegraphics[width=.6\linewidth]{img/cmp_utah.png}
+
+
+\end{itemize}
+
+\end{document}
