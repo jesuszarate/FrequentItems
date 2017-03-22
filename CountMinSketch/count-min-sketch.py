@@ -1,71 +1,79 @@
-import random
 import xxhash
 
-path = '/Users/jesuszarate/SchoolSemesters/Spring2017/CS6140-DataMining/FrequentItems/S2.txt'
 
-#a = [7,2,8,7,7,2,7,4,4,4,7]
-stream = []
-with open(path, 'r') as file:
-    for l in file: # Should only be one line, but just in case
-        for char in l:
-            stream.append(char)
+class countMinSketch(object):
+    stream = []
 
-#stream = ['a','a','a','b','b','c','a','d','a','e','e','e','f',]
-m = len(stream)
-k = 10
-t = 5
-Counters = []
+    m = 0
+    k = 10
+    t = 5
+    Counters = []
 
-_memomask = {}
+    def __init__(self, path):
+        with open(path, 'r') as file:
+            for l in file: # Should only be one line, but just in case
+                for char in l:
+                    self.stream.append(char)
+        self.m = len(self.stream)
 
-def hash_function(n):
-    mask = _memomask.get(n)
-    if mask is None:
-        random.seed(n)
-        mask = _memomask[n] = random.getrandbits(32)
-
-    def myhash(x):
-        return (hash(x) ^ mask)%k
-    return myhash
+    def initCounters(self):
+        for i in range(self.t):
+            self.Counters.append([])
+            for j in range(self.k):
+                self.Counters[i].append(0)
 
 
-def initCounters():
-    for i in range(t):
-        Counters.append([])
-        for j in range(k):
-            Counters[i].append(0)
+    def hashj(self, j, ai):
+        """
+        Returns a hash function of ai given j as the seed
+        :param j: seed
+        :param ai: item to hash
+        :return: hash integer
+        """
+        h = xxhash.xxh32(seed=j)
+        h.update(ai)
+        hj = h.intdigest()%self.k
+        return hj
 
+    def countMinSketch(self):
+        """
+        Populates the counter table
+        :return: nothing
+        """
+        self.initCounters()
 
-def hashj(j, ai):
-    h = xxhash.xxh32(seed=j)
-    #h.update(stream[i])
-    h.update(ai)
-    hj = h.intdigest()%k
-    return hj
+        for i in range(self.m):
+            for j in range(self.t):
+                self.Counters[j][self.hashj(j, self.stream[i])] += 1
 
-def countMinSketch():
-    initCounters()
+    def query(self, q):
+        """
+        Gets the frequency of the specified q
+        :param q: the item to query
+        :return: min frequency
+        """
+        m = self.Counters[0][self.hashj(0, q)]
+        for j in range(self.t):
+            current = self.Counters[j][self.hashj(j, q)]
+            if m > current:
+                m = current
+        return m
 
-    for i in range(m):
-        for j in range(t):
-            Counters[j][hashj(j, stream[i])] += 1
+path1 = '/Users/jesuszarate/SchoolSemesters/Spring2017/CS6140-DataMining/FrequentItems/S1.txt'
+path2 = '/Users/jesuszarate/SchoolSemesters/Spring2017/CS6140-DataMining/FrequentItems/S2.txt'
 
-def query(q):
-    #m = float('inf')
-    m = Counters[0][hashj(0, q)]
-    for j in range(t):
-        # hj = hash_function(j)
-        # current = Counters[j][hj(param)]
-        current = Counters[j][hashj(j, q)]
-        if m > current:
-            m = current
+cms1 = countMinSketch(path1)
+cms1.countMinSketch()
 
-        #m = min(m, current)
-    return m
+print 'a - ' + str(cms1.query('a'))
+print 'b - ' + str(cms1.query('b'))
+print 'c - ' + str(cms1.query('c'))
+print
 
-countMinSketch()
-
-print 'a - ' + str(query('a'))
-print 'b - ' + str(query('b'))
-print 'c - ' + str(query('c'))
+# cms2 = countMinSketch(path2)
+# cms2.countMinSketch()
+#
+# print 'a - ' + str(cms2.query('a'))
+# print 'b - ' + str(cms2.query('b'))
+# print 'c - ' + str(cms2.query('c'))
 
